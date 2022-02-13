@@ -3,7 +3,7 @@
 use Bitrix\Main\Loader,
 	Bitrix\Iblock;
 
-class __NAME__Component extends CBitrixComponent
+class StepsPreview extends CBitrixComponent
 {
 	function onPrepareComponentParams($params)
 	{
@@ -26,7 +26,6 @@ class __NAME__Component extends CBitrixComponent
 				$this->checkModules();
                 $this->prepareData();
 				$this->doAction();
-
 				$this->includeComponentTemplate();
 			}
 		} catch (Exception $e) {
@@ -37,6 +36,7 @@ class __NAME__Component extends CBitrixComponent
 
     protected function prepareData()
     {
+
         #проверки на существования
         $this->arResult['IBLOCK'] = [];
         if ($this->arParams['IBLOCK_ID']) {
@@ -57,10 +57,10 @@ class __NAME__Component extends CBitrixComponent
 	protected function doAction()
 	{
 		$arSelect = ['ID', 'NAME', 'PREVIEW_TEXT', 'CODE'];
-		$arFilter = ['IBLOCK_ID' => intval($this->arResult['IBLOCK_ID']), 'ACTIVE' => 'Y'];
-		$result = CIBlockElement::GetList(['SORT' => 'ASC'], $arFilter,false, [], $arSelect);
-		while ($el = $result->Fetch()) {
-		    $this->arResult[$el['ID']] = $el;
+		$arFilter = ['IBLOCK_ID' => intval($this->arParams['IBLOCK_ID']), 'ACTIVE' => 'Y'];
+		$result = CIBlockElement::GetList(['SORT' => 'ASC'], $arFilter,false, false, $arSelect);
+		while ($element = $result->Fetch()) {
+		    $this->arResult['ITEMS'][$element['ID']] = $element;
         }
 	}
 }

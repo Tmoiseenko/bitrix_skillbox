@@ -35,13 +35,13 @@ $trendFilter = array('PROPERTY_TREND' => '4');
 ?>
 <h2>Тренды сезона</h2>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section",
-	"bootstrap_v4",
+	"bitrix:catalog.section", 
+	"bootstrap_v4", 
 	array(
 		"IBLOCK_TYPE_ID" => "catalog",
 		"IBLOCK_ID" => "2",
 		"BASKET_URL" => "/personal/cart/",
-		"COMPONENT_TEMPLATE" => "",
+		"COMPONENT_TEMPLATE" => "bootstrap_v4",
 		"IBLOCK_TYPE" => "catalog",
 		"SECTION_ID" => $_REQUEST["SECTION_ID"],
 		"SECTION_CODE" => "",
@@ -81,7 +81,7 @@ $trendFilter = array('PROPERTY_TREND' => '4');
 		"PRODUCT_DISPLAY_MODE" => "Y",
 		"ADD_PICT_PROP" => "MORE_PHOTO",
 		"LABEL_PROP" => array(
-			0 => "NEWPRODUCT"
+			0 => "NEWPRODUCT",
 		),
 		"OFFER_ADD_PICT_PROP" => "-",
 		"OFFER_TREE_PROPS" => array(
@@ -135,8 +135,7 @@ $trendFilter = array('PROPERTY_TREND' => '4');
 		"ADD_PROPERTIES_TO_BASKET" => "Y",
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
-		"PRODUCT_PROPERTIES" => array(
-		),
+		"PRODUCT_PROPERTIES" => "",
 		"OFFERS_CART_PROPERTIES" => array(
 			0 => "COLOR_REF",
 			1 => "SIZES_SHOES",
@@ -156,6 +155,27 @@ $trendFilter = array('PROPERTY_TREND' => '4');
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
 		"COMPATIBLE_MODE" => "N",
+		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[]}",
+		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
+		"PROPERTY_CODE_MOBILE" => array(
+		),
+		"BACKGROUND_IMAGE" => "-",
+		"PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
+		"ENLARGE_PRODUCT" => "STRICT",
+		"PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
+		"SHOW_SLIDER" => "Y",
+		"LABEL_PROP_MOBILE" => array(
+		),
+		"LABEL_PROP_POSITION" => "top-left",
+		"SHOW_MAX_QUANTITY" => "N",
+		"RCM_TYPE" => "personal",
+		"RCM_PROD_ID" => $_REQUEST["PRODUCT_ID"],
+		"SHOW_FROM_SECTION" => "N",
+		"DISPLAY_COMPARE" => "N",
+		"USE_ENHANCED_ECOMMERCE" => "N",
+		"LAZY_LOAD" => "N",
+		"LOAD_ON_SCROLL" => "N",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N"
 	),
 	false
 );?>

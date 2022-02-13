@@ -3,7 +3,7 @@
 use Bitrix\Main\Loader,
 	Bitrix\Iblock;
 
-class StepsPreview extends CBitrixComponent
+class SliderPreview extends CBitrixComponent
 {
 	function onPrepareComponentParams($params)
 	{
@@ -56,11 +56,12 @@ class StepsPreview extends CBitrixComponent
 
 	protected function doAction()
 	{
-		$arSelect = ['ID', 'NAME', 'PREVIEW_TEXT', 'CODE'];
+		$arSelect = ['ID', 'PREVIEW_PICTURE', 'DETAIL_PICTURE'];
 		$arFilter = ['IBLOCK_ID' => intval($this->arParams['IBLOCK_ID']), 'ACTIVE' => 'Y'];
 		$result = CIBlockElement::GetList(['SORT' => 'ASC'], $arFilter,false, false, $arSelect);
 		while ($element = $result->Fetch()) {
-		    $this->arResult['ITEMS'][$element['ID']] = $element;
+		    $this->arResult['ITEMS'][$element['ID']]['PREVIEW_PICTURE'] = CFile::GetFileArray($element['PREVIEW_PICTURE']);
+		    $this->arResult['ITEMS'][$element['ID']]['DETAIL_PICTURE'] = CFile::GetFileArray($element['DETAIL_PICTURE']);
         }
 	}
 }

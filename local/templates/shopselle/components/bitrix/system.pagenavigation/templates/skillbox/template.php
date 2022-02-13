@@ -11,7 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
+pre( $arResult ,1);
 if(!$arResult["NavShowAlways"])
 {
 	if ($arResult["NavRecordCount"] == 0 || ($arResult["NavPageCount"] == 1 && $arResult["NavShowAll"] == false))
@@ -137,3 +137,16 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["Nav
 <?endif?>
 
 </font>
+
+<section class="pagination-block">
+    <div class="pagination-page">
+        <a href="#" class="key active">1</a>
+        <a href="#" class="key">2</a>
+        <a href="#" class="key">3</a>
+        <a href="#" class="key">4</a>
+        <a href="#" class="key">5</a>
+    </div>
+    <a href="#" class="key">Следующая</a>
+
+    <span class="pagination-text">Показано 2-5 из 45 результатов</span>
+</section>
